@@ -17,7 +17,7 @@ $(document).ready(function () {
 	books: { client: 'books', ds: 'bo', address: 'https://www.google.com/search?q=X&tbm=bks' },
 	products: { client: 'products-cc', ds: 'sh', address: 'https://www.google.com/#q=X&tbm=shop' },
 	news: { client: 'news-cc', ds: 'n', address: 'https://www.google.com/#q=X&tbm=nws' },
-	images: { client: 'img', ds: 'i', address: 'https://www.google.com/search?site=imghp&tbm=isch&q=X' },
+	images: { client: 'img', ds: 'i', address: 'https://www.google.com/search?site=imghp&tbm=isch&q=X&' },
 	web: { client: 'psy', ds: '', address: 'https://www.google.com/#q=X' },
 	recipes: { client: 'psy', ds: 'r', address: 'https://www.google.com/search?q=X&tbs=rcp'  }
 	};
@@ -37,7 +37,7 @@ $(document).ready(function () {
 	        	var service = services[obj.id];
 
 			    $.ajax({
-			      url: 'http'+(opts.secure?'s':'')+'://clients1.google.com/complete/search',
+			      url: 'https://clients1.google.com/complete/search',
 			      dataType: 'jsonp',
 			      data: {
 			        q: value,
@@ -46,7 +46,7 @@ $(document).ready(function () {
 			        ds: service.ds
 			      },
 			      success: function(data) {
-			      	// console.log(data);
+			      	console.log(data);
 			      	var options = $.map(data[1], function(item){
 			          return $("<span>").html(item[0]).text();
 			        });
